@@ -1,5 +1,5 @@
 ﻿using System;
-using DreamMaker.Web.Models;
+using DreamMaker.Domain.Entities;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;

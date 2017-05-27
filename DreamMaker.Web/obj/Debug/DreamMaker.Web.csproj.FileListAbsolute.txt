@@ -93,7 +93,7 @@ E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\Microsoft.Owin.Security.Google.x
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\Microsoft.Owin.Security.Twitter.xml
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\obj\Debug\DreamMaker.Web.csprojResolveAssemblyReference.cache
-E:\Bruce\Projects\DreamMaker\DreamMaker.Web\obj\Debug\DreamMaker.Web.Migrations.InitialCreate.resources
-E:\Bruce\Projects\DreamMaker\DreamMaker.Web\obj\Debug\DreamMaker.Web.csproj.GenerateResource.Cache
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\obj\Debug\DreamMaker.Web.dll
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\obj\Debug\DreamMaker.Web.pdb
+E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\DreamMaker.UI.dll
+E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\DreamMaker.UI.pdb

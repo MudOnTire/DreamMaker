@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamMaker.Web", "DreamMake
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamMaker.Domain", "DreamMaker.Domain\DreamMaker.Domain.csproj", "{B38DF4E0-5542-40CD-9836-D16A29245B17}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamMaker.UI", "DreamMaker.UI\DreamMaker.UI.csproj", "{0710C0FF-7025-4E2D-8A4C-25C013C67973}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B38DF4E0-5542-40CD-9836-D16A29245B17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B38DF4E0-5542-40CD-9836-D16A29245B17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B38DF4E0-5542-40CD-9836-D16A29245B17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0710C0FF-7025-4E2D-8A4C-25C013C67973}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0710C0FF-7025-4E2D-8A4C-25C013C67973}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0710C0FF-7025-4E2D-8A4C-25C013C67973}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0710C0FF-7025-4E2D-8A4C-25C013C67973}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

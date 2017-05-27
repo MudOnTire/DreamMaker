@@ -16,6 +16,6 @@ namespace DreamMaker.Domain.Entities
 
         public string ProjectDescription { get; set; }
 
-        public int CreatorId { get; set; }
+        public string CreatorId { get; set; }
     }
 }
