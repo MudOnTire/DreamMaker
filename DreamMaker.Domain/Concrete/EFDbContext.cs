@@ -10,11 +10,13 @@ namespace DreamMaker.Domain.Concrete
 {
     public class EfDbContext : DbContext
     {
-        public EfDbContext(): base("DreamMakerConnStr")
+        public EfDbContext(): base("DreamMakerDB")
         {
 
         }
 
         public DbSet<Room> Rooms { get; set; }
+
+        public DbSet<FundingProject> FundingProjects { get; set; } 
     }
 }

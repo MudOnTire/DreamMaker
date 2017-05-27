@@ -20,7 +20,7 @@ namespace DreamMaker.Web.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DreamMakerConnStr", throwIfV1Schema: false)
+            : base("DreamMakerDB", throwIfV1Schema: false)
         {
         }
 

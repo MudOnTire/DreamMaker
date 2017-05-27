@@ -10,7 +10,6 @@ namespace DreamMaker.Web.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "DreamMaker.Web.Models.ApplicationDbContext";
         }
 
         protected override void Seed(DreamMaker.Web.Models.ApplicationDbContext context)

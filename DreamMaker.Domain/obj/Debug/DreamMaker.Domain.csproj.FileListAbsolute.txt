@@ -5,9 +5,9 @@ E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\EntityFramework.dll
 E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\EntityFramework.SqlServer.dll
 E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\EntityFramework.xml
 E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\EntityFramework.SqlServer.xml
-E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.csprojResolveAssemblyReference.cache
 E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.Migrations.AddRoom.resources
 E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.Migrations.ChangeDataBase.resources
 E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.csproj.GenerateResource.Cache
 E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.dll
 E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.pdb
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.Migrations.addProject.resources
