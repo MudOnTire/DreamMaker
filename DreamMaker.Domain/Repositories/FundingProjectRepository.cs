@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using DreamMaker.Domain.Abstract;
-using DreamMaker.Domain.Concrete;
 using DreamMaker.Domain.Entities;
 using DreamMaker.UI.InputModels;
 using DreamMaker.UI.ViewModels;
@@ -13,12 +12,11 @@ namespace DreamMaker.Domain.Repositories
 {
     public class FundingProjectRepository : IFundingProjectRepository
     {
-        private EfDbContext _context = new EfDbContext();
         private ApplicationDbContext _appContext = new ApplicationDbContext();
 
         public IEnumerable<FundingProject> FundingProjects
         {
-            get { return _context.FundingProjects; }
+            get { return _appContext.FundingProjects; }
         }
 
         /// <summary>
@@ -35,8 +33,8 @@ namespace DreamMaker.Domain.Repositories
                 ProjectDescription = model.ProjectDescription,
                 CreateTime = DateTime.Now
             };
-            var addedProject = _context.FundingProjects.Add(newProject);
-            _context.SaveChanges();
+            var addedProject = _appContext.FundingProjects.Add(newProject);
+            _appContext.SaveChanges();
             return addedProject.ProjectId;
         }
 

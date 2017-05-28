@@ -228,6 +228,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\FundingProjectController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LuckyCenterController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -299,6 +300,7 @@
     <Content Include="Views\FundingProject\CreateFundingProject.cshtml" />
     <Content Include="Views\FundingProject\Detail.cshtml" />
     <Content Include="Views\FundingProject\IndexLatestProjects.cshtml" />
+    <Content Include="Views\LuckyCenter\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

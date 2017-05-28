@@ -1,19 +1,18 @@
-namespace DreamMaker.Domain.Migrations.DomainContext
+namespace DreamMaker.Domain.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class ConfigurationA : DbMigrationsConfiguration<DreamMaker.Domain.Concrete.EfDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DreamMaker.Domain.Entities.ApplicationDbContext>
     {
-        public ConfigurationA()
+        public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            MigrationsDirectory = @"Migrations\DomainContext";
         }
 
-        protected override void Seed(DreamMaker.Domain.Concrete.EfDbContext context)
+        protected override void Seed(DreamMaker.Domain.Entities.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

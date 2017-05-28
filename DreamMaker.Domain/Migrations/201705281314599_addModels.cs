@@ -1,12 +1,24 @@
-namespace DreamMaker.Domain.Migrations.IdentityContext
+namespace DreamMaker.Domain.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class addIdentity : DbMigration
+    public partial class addModels : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.FundingProjects",
+                c => new
+                    {
+                        ProjectId = c.Int(nullable: false, identity: true),
+                        ProjectName = c.String(),
+                        ProjectDescription = c.String(),
+                        CreatorId = c.String(),
+                        CreateTime = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.ProjectId);
+            
             CreateTable(
                 "dbo.AspNetRoles",
                 c => new
@@ -31,6 +43,17 @@ namespace DreamMaker.Domain.Migrations.IdentityContext
                 .Index(t => t.RoleId);
             
             CreateTable(
+                "dbo.Rooms",
+                c => new
+                    {
+                        RoomId = c.Long(nullable: false, identity: true),
+                        RoomName = c.String(),
+                        MaxMemberCount = c.Int(nullable: false),
+                        CreatorId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.RoomId);
+            
+            CreateTable(
                 "dbo.AspNetUsers",
                 c => new
                     {
@@ -46,9 +69,12 @@ namespace DreamMaker.Domain.Migrations.IdentityContext
                         LockoutEnabled = c.Boolean(nullable: false),
                         AccessFailedCount = c.Int(nullable: false),
                         UserName = c.String(nullable: false, maxLength: 256),
+                        Room_RoomId = c.Long(),
                     })
                 .PrimaryKey(t => t.Id)
-                .Index(t => t.UserName, unique: true, name: "UserNameIndex");
+                .ForeignKey("dbo.Rooms", t => t.Room_RoomId)
+                .Index(t => t.UserName, unique: true, name: "UserNameIndex")
+                .Index(t => t.Room_RoomId);
             
             CreateTable(
                 "dbo.AspNetUserClaims",
@@ -79,12 +105,14 @@ namespace DreamMaker.Domain.Migrations.IdentityContext
         
         public override void Down()
         {
+            DropForeignKey("dbo.AspNetUsers", "Room_RoomId", "dbo.Rooms");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
+            DropIndex("dbo.AspNetUsers", new[] { "Room_RoomId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
@@ -92,8 +120,10 @@ namespace DreamMaker.Domain.Migrations.IdentityContext
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
+            DropTable("dbo.Rooms");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.FundingProjects");
         }
     }
 }

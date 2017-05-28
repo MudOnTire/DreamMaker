@@ -17,5 +17,7 @@ namespace DreamMaker.Domain.Entities
         public int MaxMemberCount { get; set; }
 
         public int CreatorId { get; set; }
+
+        public virtual ICollection<ApplicationUser> Members { get; set; }
     }
 }

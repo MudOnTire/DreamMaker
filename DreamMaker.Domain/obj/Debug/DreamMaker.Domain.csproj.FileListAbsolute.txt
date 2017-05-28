@@ -57,9 +57,7 @@ D:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\Microsoft.Owin.Security
 D:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\Microsoft.Owin.Security.OAuth.xml
 D:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\Newtonsoft.Json.xml
 D:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.csprojResolveAssemblyReference.cache
-D:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.Migrations.DomainContext.addModels.resources
-D:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.Migrations.IdentityContext.addIdentity.resources
-D:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.csproj.GenerateResource.Cache
 D:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.dll
 D:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.pdb
-D:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.Migrations.DomainContext.addCreateTimeToFundingProject.resources
+D:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.Migrations.addModels.resources
+D:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.csproj.GenerateResource.Cache

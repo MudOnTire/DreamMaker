@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 
 namespace DreamMaker.Domain.Entities
 {
@@ -28,5 +29,9 @@ namespace DreamMaker.Domain.Entities
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Room> Rooms { get; set; }
+
+        public DbSet<FundingProject> FundingProjects { get; set; }
     }
 }
