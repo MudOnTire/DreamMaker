@@ -15,5 +15,7 @@ namespace DreamMaker.UI.ViewModels
         public string ProjectDescription { get; set; }
 
         public UserViewModel Creator { get; set; }
+
+        public DateTime CreateTime { get; set; }
     }
 }

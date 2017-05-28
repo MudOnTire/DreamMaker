@@ -17,21 +17,45 @@ namespace DreamMaker.Web.Controllers
             _fundingProjectRepository = fundingProjectRepository;
         }
 
+        [HttpGet]
+        public ActionResult CreateFundingProject()
+        {
+            return View();
+        }
+
         /// <summary>
         /// 创建众筹项目
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
+        [HttpPost]
+        [Authorize]
         public ActionResult CreateFundingProject(CreateFundingProjectInputModel model)
         {
             int newProjectId = _fundingProjectRepository.Create(model);
-            return RedirectToAction("Detail");
+            return RedirectToAction("Detail", new { projectId = newProjectId });
         }
 
+        /// <summary>
+        /// 项目详情
+        /// </summary>
+        /// <param name="projectId"></param>
+        /// <returns></returns>
         public ActionResult Detail(int projectId)
         {
             var vm = _fundingProjectRepository.GetViewModel(projectId);
             return View(vm);
+        }
+        
+        /// <summary>
+        /// 首页的最新众筹项目
+        /// </summary>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+        public ActionResult IndexLatestProjects(int pageSize)
+        {
+            var model = _fundingProjectRepository.LatestProjects(pageSize);
+            return PartialView(model);
         }
     }
 }

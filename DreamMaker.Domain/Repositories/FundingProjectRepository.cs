@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DreamMaker.Domain.Abstract;
 using DreamMaker.Domain.Concrete;
 using DreamMaker.Domain.Entities;
 using DreamMaker.UI.InputModels;
 using DreamMaker.UI.ViewModels;
+using Microsoft.AspNet.Identity;
+using System.Web;
+using System;
 
 namespace DreamMaker.Domain.Repositories
 {
@@ -17,7 +17,7 @@ namespace DreamMaker.Domain.Repositories
         private ApplicationDbContext _appContext = new ApplicationDbContext();
 
         public IEnumerable<FundingProject> FundingProjects
-        { 
+        {
             get { return _context.FundingProjects; }
         }
 
@@ -30,8 +30,10 @@ namespace DreamMaker.Domain.Repositories
         {
             var newProject = new FundingProject
             {
+                CreatorId = HttpContext.Current.User.Identity.GetUserId(),
                 ProjectName = model.ProjectName,
-                ProjectDescription = model.ProjectDescription
+                ProjectDescription = model.ProjectDescription,
+                CreateTime = DateTime.Now
             };
             var addedProject = _context.FundingProjects.Add(newProject);
             _context.SaveChanges();
@@ -56,9 +58,20 @@ namespace DreamMaker.Domain.Repositories
                 {
                     UserId = user.Id,
                     UserName = user.UserName
-                }
+                },
+                CreateTime = model.CreateTime
             };
             return vm;
+        }
+
+        /// <summary>
+        /// 获取最新的项目
+        /// </summary>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+        public IEnumerable<FundingProject> LatestProjects(int pageSize)
+        {
+            return FundingProjects.OrderByDescending(p => p.CreateTime).Take(pageSize);
         }
     }
 }

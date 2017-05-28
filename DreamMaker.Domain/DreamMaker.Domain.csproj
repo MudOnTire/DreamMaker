@@ -77,6 +77,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -94,6 +95,10 @@
     <Compile Include="Migrations\DomainContext\201705271026066_addModels.cs" />
     <Compile Include="Migrations\DomainContext\201705271026066_addModels.Designer.cs">
       <DependentUpon>201705271026066_addModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\DomainContext\201705280437497_addCreateTimeToFundingProject.cs" />
+    <Compile Include="Migrations\DomainContext\201705280437497_addCreateTimeToFundingProject.Designer.cs">
+      <DependentUpon>201705280437497_addCreateTimeToFundingProject.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DomainContext\ConfigurationA.cs" />
     <Compile Include="Migrations\IdentityContext\201705271026368_addIdentity.cs" />
@@ -118,6 +123,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\DomainContext\201705271026066_addModels.resx">
       <DependentUpon>201705271026066_addModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\DomainContext\201705280437497_addCreateTimeToFundingProject.resx">
+      <DependentUpon>201705280437497_addCreateTimeToFundingProject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\IdentityContext\201705271026368_addIdentity.resx">
       <DependentUpon>201705271026368_addIdentity.cs</DependentUpon>
