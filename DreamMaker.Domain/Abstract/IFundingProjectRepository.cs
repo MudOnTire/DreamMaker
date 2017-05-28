@@ -17,6 +17,6 @@ namespace DreamMaker.Domain.Abstract
 
         FundingProjectViewModel GetViewModel(int projectId);
 
-        IEnumerable<FundingProject> LatestProjects(int pageSize);
+        IEnumerable<FundingProjectViewModel> LatestProjects(int pageSize);
     }
 }

@@ -69,9 +69,26 @@ namespace DreamMaker.Domain.Repositories
         /// </summary>
         /// <param name="pageSize"></param>
         /// <returns></returns>
-        public IEnumerable<FundingProject> LatestProjects(int pageSize)
+        public IEnumerable<FundingProjectViewModel> LatestProjects(int pageSize)
         {
-            return FundingProjects.OrderByDescending(p => p.CreateTime).Take(pageSize);
+            var dbModels = FundingProjects.OrderByDescending(p => p.CreateTime).Take(pageSize);
+            var viewModels = dbModels.Select(m =>
+            {
+                var userDBM = _appContext.Users.FirstOrDefault(u => u.Id == m.CreatorId);
+                return new FundingProjectViewModel
+                {
+                    ProjectId = m.ProjectId,
+                    ProjectName = m.ProjectName,
+                    ProjectDescription = m.ProjectDescription,
+                    Creator = new UserViewModel
+                    {
+                        UserId = userDBM.Id,
+                        UserName = userDBM.UserName
+                    },
+                    CreateTime = m.CreateTime
+                };
+            });
+            return viewModels;
         }
     }
 }

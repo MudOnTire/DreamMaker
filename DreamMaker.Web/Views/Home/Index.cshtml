@@ -2,4 +2,4 @@
     ViewBag.Title = "Dream Maker";
 }
 
-<a href="@Url.Action("CreateFundingProject","FundingProject")">Publish My Dream</a>
+@{Html.RenderAction("IndexLatestProjects", "FundingProject", new { pageSize = 8 });}

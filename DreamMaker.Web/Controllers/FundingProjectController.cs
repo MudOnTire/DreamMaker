@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using DreamMaker.Domain.Abstract;
 using DreamMaker.UI.InputModels;
+using DreamMaker.UI.ViewModels;
 
 namespace DreamMaker.Web.Controllers
 {
@@ -54,8 +55,8 @@ namespace DreamMaker.Web.Controllers
         /// <returns></returns>
         public ActionResult IndexLatestProjects(int pageSize)
         {
-            var model = _fundingProjectRepository.LatestProjects(pageSize);
-            return PartialView(model);
+            var models = _fundingProjectRepository.LatestProjects(pageSize);
+            return PartialView(models);
         }
     }
 }

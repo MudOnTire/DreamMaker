@@ -1,0 +1,18 @@
+﻿@model  IEnumerable<DreamMaker.UI.ViewModels.FundingProjectViewModel>
+
+<div class="latest-projects">
+    <ul>
+        @foreach(var project in Model)
+        {
+            <li>
+                <h3>@project.ProjectName</h3>
+                <p>@project.ProjectDescription</p>
+                <p>
+                    <span>@project.Creator.UserName</span>
+                    <span>@project.CreateTime.ToString("yyyy年MM月dd日")</span>
+                </p>
+            </li>
+        }
+    </ul>
+</div>
+

@@ -298,6 +298,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\FundingProject\CreateFundingProject.cshtml" />
     <Content Include="Views\FundingProject\Detail.cshtml" />
+    <Content Include="Views\FundingProject\IndexLatestProjects.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
