@@ -7,12 +7,19 @@ using DreamMaker.UI.ViewModels;
 using Microsoft.AspNet.Identity;
 using System.Web;
 using System;
+using DreamMaker.Domain.ModelMapper;
 
 namespace DreamMaker.Domain.Repositories
 {
     public class FundingProjectRepository : IFundingProjectRepository
     {
         private ApplicationDbContext _appContext = new ApplicationDbContext();
+        private IModelMapper _modelMapper;
+
+        public FundingProjectRepository(IModelMapper modelMapper)
+        {
+            _modelMapper = modelMapper;
+        }
 
         public IEnumerable<FundingProject> FundingProjects
         {
@@ -45,21 +52,8 @@ namespace DreamMaker.Domain.Repositories
         /// <returns></returns>
         public FundingProjectViewModel GetViewModel(int projectId)
         {
-            FundingProjectViewModel vm;
-            var model = FundingProjects.FirstOrDefault(p => p.ProjectId == projectId);
-            var user = _appContext.Users.FirstOrDefault(u => u.Id == model.CreatorId);
-            vm = new FundingProjectViewModel
-            {
-                ProjectName = model.ProjectName,
-                ProjectDescription = model.ProjectDescription,
-                Creator = new UserViewModel
-                {
-                    UserId = user.Id,
-                    UserName = user.UserName
-                },
-                CreateTime = model.CreateTime
-            };
-            return vm;
+            var dbModel = FundingProjects.FirstOrDefault(p => p.ProjectId == projectId);
+            return _modelMapper.GetFundingProjectViewModelFromEntity(dbModel);
         }
 
         /// <summary>
@@ -70,22 +64,7 @@ namespace DreamMaker.Domain.Repositories
         public IEnumerable<FundingProjectViewModel> LatestProjects(int pageSize)
         {
             var dbModels = FundingProjects.OrderByDescending(p => p.CreateTime).Take(pageSize);
-            var viewModels = dbModels.Select(m =>
-            {
-                var userDBM = _appContext.Users.FirstOrDefault(u => u.Id == m.CreatorId);
-                return new FundingProjectViewModel
-                {
-                    ProjectId = m.ProjectId,
-                    ProjectName = m.ProjectName,
-                    ProjectDescription = m.ProjectDescription,
-                    Creator = new UserViewModel
-                    {
-                        UserId = userDBM.Id,
-                        UserName = userDBM.UserName
-                    },
-                    CreateTime = m.CreateTime
-                };
-            });
+            var viewModels = dbModels.Select(m => _modelMapper.GetFundingProjectViewModelFromEntity(m));
             return viewModels;
         }
     }

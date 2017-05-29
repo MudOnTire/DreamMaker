@@ -14,7 +14,9 @@ namespace DreamMaker.UI.ViewModels
 
         public int MaxMemberCount { get; set; }
 
-        public int CreatorId { get; set; }
+        public UserViewModel Creator { get; set; }
+
+        public DateTime CreateTime { get; set; }
 
         public IEnumerable<UserViewModel> Members { get; set; }
     }

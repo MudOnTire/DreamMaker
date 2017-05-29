@@ -11,14 +11,14 @@ namespace DreamMaker.Domain.Entities
     {
         [Key]
         public long RoomId { get; set; }
-
+         
         public string RoomName { get; set; }
 
         public int MaxMemberCount { get; set; }
 
-        public int CreatorId { get; set; }
+        public string CreatorId { get; set; }
 
-        public int CreateTime { get; set; }
+        public DateTime CreateTime { get; set; }
 
         public virtual ICollection<ApplicationUser> Members { get; set; }
     }

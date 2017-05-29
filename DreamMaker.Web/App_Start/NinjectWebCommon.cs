@@ -5,6 +5,7 @@ using DreamMaker.Domain.Repositories;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using Ninject;
 using Ninject.Web.Common;
+using DreamMaker.Domain.ModelMapper;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(DreamMaker.Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(DreamMaker.Web.App_Start.NinjectWebCommon), "Stop")]
@@ -63,6 +64,7 @@ namespace DreamMaker.Web.App_Start
         {
             kernel.Bind<IRoomRepository>().To<RoomRepository>();
             kernel.Bind<IFundingProjectRepository>().To<FundingProjectRepository>();
+            kernel.Bind<IModelMapper>().To<ModelMapper>();
         }        
     }
 }

@@ -1,0 +1,12 @@
+﻿@model IEnumerable<DreamMaker.UI.ViewModels.RoomViewModel>
+
+<div class="rooms">
+    <ul>
+        @foreach(var room in Model)
+        {
+            <li>
+                <a>@room.RoomName</a>
+            </li>
+        }
+    </ul>
+</div>

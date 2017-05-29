@@ -23,8 +23,8 @@ namespace DreamMaker.Web.Controllers
 
         public ActionResult RoomList(int offset = 0, int limit=20)
         {
-            
-            return PartialView();
+            var model = _roomRepository.LatestRooms(offset, limit);
+            return PartialView(model);
         }
     }
 }

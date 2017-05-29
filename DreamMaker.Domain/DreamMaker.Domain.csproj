@@ -99,7 +99,17 @@
     <Compile Include="Migrations\201705290443067_addCreateTimeToRoom.Designer.cs">
       <DependentUpon>201705290443067_addCreateTimeToRoom.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705290747086_deleteRoomCreateTime.cs" />
+    <Compile Include="Migrations\201705290747086_deleteRoomCreateTime.Designer.cs">
+      <DependentUpon>201705290747086_deleteRoomCreateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705290748229_addRoomCreateTime.cs" />
+    <Compile Include="Migrations\201705290748229_addRoomCreateTime.Designer.cs">
+      <DependentUpon>201705290748229_addRoomCreateTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ModelMapper\IModelMapper.cs" />
+    <Compile Include="ModelMapper\ModelMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\FundingProjectRepository.cs" />
     <Compile Include="Repositories\RoomRepository.cs" />
@@ -121,7 +131,14 @@
     <EmbeddedResource Include="Migrations\201705290443067_addCreateTimeToRoom.resx">
       <DependentUpon>201705290443067_addCreateTimeToRoom.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705290747086_deleteRoomCreateTime.resx">
+      <DependentUpon>201705290747086_deleteRoomCreateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705290748229_addRoomCreateTime.resx">
+      <DependentUpon>201705290748229_addRoomCreateTime.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
