@@ -103,6 +103,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -302,6 +303,8 @@
     <Content Include="Views\FundingProject\IndexLatestProjects.cshtml" />
     <Content Include="Views\LuckyCenter\Index.cshtml" />
     <Content Include="Views\LuckyCenter\RoomList.cshtml" />
+    <Content Include="Views\LuckyCenter\Detail.cshtml" />
+    <Content Include="Views\LuckyCenter\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

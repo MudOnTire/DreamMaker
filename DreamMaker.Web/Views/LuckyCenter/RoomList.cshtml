@@ -5,7 +5,20 @@
         @foreach(var room in Model)
         {
             <li>
-                <a>@room.RoomName</a>
+                <h3>
+                    <a>@room.RoomName</a>
+                </h3>
+                <div class="room__members">
+                    <h4>Room Members</h4>
+                    <ul>
+                        @foreach(var member in room.Members)
+                        {
+                            <li>
+                                <a>@member.UserName</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
             </li>
         }
     </ul>

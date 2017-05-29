@@ -1,0 +1,21 @@
+﻿@model DreamMaker.UI.ViewModels.RoomViewModel
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>@Model.RoomName</h2>
+<h3>房间人数：
+    <span>@Model.Members.Count()</span>/
+    <span>@Model.MaxMemberCount</span>
+</h3>
+<h3>成员：</h3>
+<ol>
+    @foreach(var member in Model.Members)
+    {
+        <li>
+            <a>@member.UserName</a>
+        </li>
+    }
+</ol>
+

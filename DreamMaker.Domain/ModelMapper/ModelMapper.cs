@@ -28,14 +28,19 @@ namespace DreamMaker.Domain.ModelMapper
             {
                 throw new Exception(string.Format("room {0} has no creator", room.RoomId));
             }
+            List<UserViewModel> members = new List<UserViewModel>();
+            foreach(var member in room.Members)
+            {
+                members.Add(this.GetUserViewModeFromEntity(member));
+            }
             return new RoomViewModel
             {
                 RoomId = room.RoomId,
                 RoomName = room.RoomName,
                 MaxMemberCount = room.MaxMemberCount,
                 Creator = this.GetUserViewModeFromEntity(creator),
-                //CreateTime = room.CreateTime,
-                Members = room.Members.Select(m => this.GetUserViewModeFromEntity(m))
+                CreateTime = room.CreateTime,
+                Members = members
             };
         }
 

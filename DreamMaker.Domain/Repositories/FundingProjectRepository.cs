@@ -53,6 +53,10 @@ namespace DreamMaker.Domain.Repositories
         public FundingProjectViewModel GetViewModel(int projectId)
         {
             var dbModel = FundingProjects.FirstOrDefault(p => p.ProjectId == projectId);
+            if (dbModel == null)
+            {
+                throw new Exception(string.Format("众筹项目{0}没有找到", projectId));
+            }
             return _modelMapper.GetFundingProjectViewModelFromEntity(dbModel);
         }
 
@@ -64,7 +68,11 @@ namespace DreamMaker.Domain.Repositories
         public IEnumerable<FundingProjectViewModel> LatestProjects(int pageSize)
         {
             var dbModels = FundingProjects.OrderByDescending(p => p.CreateTime).Take(pageSize);
-            var viewModels = dbModels.Select(m => _modelMapper.GetFundingProjectViewModelFromEntity(m));
+            List<FundingProjectViewModel> viewModels = new List<FundingProjectViewModel>();
+            foreach (var dbModel in dbModels)
+            {
+                viewModels.Add(_modelMapper.GetFundingProjectViewModelFromEntity(dbModel));
+            }
             return viewModels;
         }
     }
