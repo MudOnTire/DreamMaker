@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DreamMaker.Domain.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,22 @@ namespace DreamMaker.Web.Controllers
 {
     public class LuckyCenterController : Controller
     {
+        private IRoomRepository _roomRepository;
+
+        public LuckyCenterController(IRoomRepository roomRepository)
+        {
+            _roomRepository = roomRepository;
+        }
+
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult RoomList(int offset = 0, int limit=20)
+        {
+            
+            return PartialView();
         }
     }
 }

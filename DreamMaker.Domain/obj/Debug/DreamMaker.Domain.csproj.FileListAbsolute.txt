@@ -61,3 +61,4 @@ D:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.dll
 D:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.pdb
 D:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.Migrations.addModels.resources
 D:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.csproj.GenerateResource.Cache
+D:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.Migrations.addCreateTimeToRoom.resources

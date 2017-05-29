@@ -95,6 +95,10 @@
     <Compile Include="Migrations\201705281314599_addModels.Designer.cs">
       <DependentUpon>201705281314599_addModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705290443067_addCreateTimeToRoom.cs" />
+    <Compile Include="Migrations\201705290443067_addCreateTimeToRoom.Designer.cs">
+      <DependentUpon>201705290443067_addCreateTimeToRoom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\FundingProjectRepository.cs" />
@@ -113,6 +117,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201705281314599_addModels.resx">
       <DependentUpon>201705281314599_addModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705290443067_addCreateTimeToRoom.resx">
+      <DependentUpon>201705290443067_addCreateTimeToRoom.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DreamMaker.Domain.Abstract;
 using DreamMaker.Domain.Entities;
+using DreamMaker.UI.ViewModels;
 
 namespace DreamMaker.Domain.Repositories
 {
@@ -12,9 +13,17 @@ namespace DreamMaker.Domain.Repositories
     {
         private ApplicationDbContext _appContext = new ApplicationDbContext();
 
-        IEnumerable<Room> IRoomRepository.Rooms
+        public IEnumerable<Room> Rooms
         {
-            get { return _appContext.Rooms; }
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public IEnumerable<RoomViewModel> LatestRooms(int offset, int limit)
+        {
+            return null;
         }
     }
 }

@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DreamMaker.Domain.Entities
+namespace DreamMaker.UI.ViewModels
 {
-    public class Room
+     public class RoomViewModel
     {
-        [Key]
         public long RoomId { get; set; }
 
         public string RoomName { get; set; }
@@ -18,8 +16,6 @@ namespace DreamMaker.Domain.Entities
 
         public int CreatorId { get; set; }
 
-        public int CreateTime { get; set; }
-
-        public virtual ICollection<ApplicationUser> Members { get; set; }
+        public IEnumerable<UserViewModel> Members { get; set; }
     }
 }
