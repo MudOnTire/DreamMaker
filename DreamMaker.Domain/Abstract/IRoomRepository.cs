@@ -18,5 +18,7 @@ namespace DreamMaker.Domain.Abstract
         IEnumerable<RoomViewModel> LatestRooms(int offset, int limit);
 
         long Create(CreateLuckyRoomInputModel model);
+
+        bool JoinRoom(long roomId);
     }
 }

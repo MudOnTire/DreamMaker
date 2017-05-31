@@ -86,5 +86,24 @@ namespace DreamMaker.Domain.Repositories
             }
             return viewModels;
         }
+
+        /// <summary>
+        /// 登录用户加入房间
+        /// </summary>
+        /// <param name="roomId"></param>
+        /// <returns></returns>
+        public bool JoinRoom(long roomId)
+        {
+            var currentUserId = HttpContext.Current.User.Identity.GetUserId();
+            var currentUser = _appContext.Users.FirstOrDefault(u => u.Id == currentUserId);
+            var room = _appContext.Rooms.FirstOrDefault(r => r.RoomId == roomId);
+            if (room == null)
+            {
+                throw new Exception(string.Format("没有找到房间{0}", roomId));
+            }
+            room.Members.Add(currentUser);
+            _appContext.SaveChanges();
+            return true;
+        }
     }
 }

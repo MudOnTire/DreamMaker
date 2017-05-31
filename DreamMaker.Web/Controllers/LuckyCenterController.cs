@@ -67,5 +67,24 @@ namespace DreamMaker.Web.Controllers
             var model = _roomRepository.LatestRooms(offset, limit);
             return PartialView(model);
         }
+
+        /// <summary>
+        /// 登录用户加入房间
+        /// </summary>
+        /// <param name="roomId"></param>
+        /// <returns></returns>
+        [Authorize]
+        public ActionResult Join(long roomId)
+        {
+            bool result = _roomRepository.JoinRoom(roomId);
+            if (result)
+            {
+                return RedirectToAction("Detail", new {roomId = roomId});
+            }
+            else
+            {
+                return new HttpNotFoundResult();
+            }
+        }
     }
 }
