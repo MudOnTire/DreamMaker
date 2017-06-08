@@ -10,15 +10,25 @@ namespace DreamMaker.Web.Controllers
 {
     public class LuckyCenterController : Controller
     {
+        private IUserRepository _userRepository;
         private IRoomRepository _roomRepository;
 
-        public LuckyCenterController(IRoomRepository roomRepository)
+        public LuckyCenterController(IUserRepository userRepository, IRoomRepository roomRepository)
         {
+            _userRepository = userRepository;
             _roomRepository = roomRepository;
         }
 
         public ActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                var currentUser = _userRepository.GetCurrentUser();
+                if (currentUser.Room != null)
+                {
+                    return RedirectToAction("Detail", new { roomId = currentUser.Room.RoomId });
+                }
+            }
             return View();
         }
         
@@ -66,6 +76,25 @@ namespace DreamMaker.Web.Controllers
         {
             var model = _roomRepository.LatestRooms(offset, limit);
             return PartialView(model);
+        }
+
+        /// <summary>
+        /// 登录用户加入房间
+        /// </summary>
+        /// <param name="roomId"></param>
+        /// <returns></returns>
+        [Authorize]
+        public ActionResult Join(long roomId)
+        {
+            bool result = _roomRepository.JoinRoom(roomId);
+            if (result)
+            {
+                return RedirectToAction("Detail", new {roomId = roomId});
+            }
+            else
+            {
+                return new HttpNotFoundResult();
+            }
         }
     }
 }

@@ -62,8 +62,10 @@ namespace DreamMaker.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<IUserRepository>().To<UserRepository>();
             kernel.Bind<IRoomRepository>().To<RoomRepository>();
             kernel.Bind<IFundingProjectRepository>().To<FundingProjectRepository>();
+            kernel.Bind<IUserWalletRepository>().To<UserWalletRepository>();
             kernel.Bind<IModelMapper>().To<ModelMapper>();
         }        
     }

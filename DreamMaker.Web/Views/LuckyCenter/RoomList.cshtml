@@ -1,17 +1,20 @@
-﻿@model IEnumerable<DreamMaker.UI.ViewModels.RoomViewModel>
-
+﻿@using Microsoft.AspNet.Identity
+@model IEnumerable<DreamMaker.UI.ViewModels.RoomViewModel>
+@{
+    var currentUserId = User.Identity.GetUserId();
+}
 <div class="rooms">
     <ul>
-        @foreach(var room in Model)
+        @foreach (var room in Model)
         {
             <li>
                 <h3>
-                    <a>@room.RoomName</a>
+                    <a href="@Url.Action("Detail", new { roomId = room.RoomId })">@room.RoomName</a>
                 </h3>
                 <div class="room__members">
                     <h4>Room Members</h4>
                     <ul>
-                        @foreach(var member in room.Members)
+                        @foreach (var member in room.Members)
                         {
                             <li>
                                 <a>@member.UserName</a>
@@ -19,6 +22,14 @@
                         }
                     </ul>
                 </div>
+                @if (room.Members.Select(m => m.UserId).Contains(currentUserId))
+                {
+                    <span>已加入</span>
+                }
+                else
+                {
+                    <a href="@Url.Action("Join","LuckyCenter",new {roomId=room.RoomId})" class="js-join-room">Join</a>
+                }
             </li>
         }
     </ul>

@@ -9,6 +9,7 @@ using DreamMaker.UI.ViewModels;
 using DreamMaker.Domain.ModelMapper;
 using DreamMaker.UI.InputModels;
 using System.Web;
+using DreamMaker.Domain.DBContext;
 using Microsoft.AspNet.Identity;
 
 namespace DreamMaker.Domain.Repositories
@@ -63,7 +64,7 @@ namespace DreamMaker.Domain.Repositories
                 CreatorId = currentUserId,
                 CreateTime = DateTime.Now,
                 Members = new List<ApplicationUser>()
-        };
+            };
             newRoom.Members.Add(currentUser);
             var addedRoom = _appContext.Rooms.Add(newRoom);
             _appContext.SaveChanges();
@@ -85,6 +86,25 @@ namespace DreamMaker.Domain.Repositories
                 viewModels.Add(_modelMapper.GetRoomViewModelFromEntity(dbModel));
             }
             return viewModels;
+        }
+
+        /// <summary>
+        /// 登录用户加入房间
+        /// </summary>
+        /// <param name="roomId"></param>
+        /// <returns></returns>
+        public bool JoinRoom(long roomId)
+        {
+            var currentUserId = HttpContext.Current.User.Identity.GetUserId();
+            var currentUser = _appContext.Users.FirstOrDefault(u => u.Id == currentUserId);
+            var room = _appContext.Rooms.FirstOrDefault(r => r.RoomId == roomId);
+            if (room == null)
+            {
+                throw new Exception(string.Format("没有找到房间{0}", roomId));
+            }
+            room.Members.Add(currentUser);
+            _appContext.SaveChanges();
+            return true;
         }
     }
 }

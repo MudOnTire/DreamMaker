@@ -1,0 +1,28 @@
+﻿@model DreamMaker.UI.ViewModels.UserWalletViewModel
+@{
+    ViewBag.Title = "MyWallet";
+}
+
+<script type="text/javascript">
+    function rechargeSucceed() {
+        alert("充值成功");
+        location.reload();
+    }
+
+    function rechargeFail() {
+        alert("充值失败");
+    }
+</script>
+
+<h2>当前余额：@Model.CurrentBalance</h2>
+
+<a href="javascript:void(0);">充值</a>
+
+@using (Ajax.BeginForm("RechargeMyWallet", "User", null, new AjaxOptions { HttpMethod = "Post", OnSuccess = "rechargeSucceed", OnFailure = "rechargeFail" }))
+{
+    @Html.AntiForgeryToken()
+    <input type="number" name="amount" placeholder="0.0" />
+    <button type="submit">提交</button>
+}
+
+

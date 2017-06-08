@@ -7,6 +7,7 @@ using DreamMaker.UI.ViewModels;
 using Microsoft.AspNet.Identity;
 using System.Web;
 using System;
+using DreamMaker.Domain.DBContext;
 using DreamMaker.Domain.ModelMapper;
 
 namespace DreamMaker.Domain.Repositories

@@ -1,3 +1,4 @@
+E:\Bruce\Projects\DreamMaker\DreamMaker.Web\obj\Debug\DreamMaker.Web.csprojResolveAssemblyReference.cache
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\ApplicationInsights.config
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\roslyn\csc.exe
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -16,6 +17,7 @@ E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\DreamMaker.Web.dll
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\DreamMaker.Web.pdb
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\Antlr3.Runtime.dll
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\DreamMaker.Domain.dll
+E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\DreamMaker.UI.dll
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\EntityFramework.dll
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\EntityFramework.SqlServer.dll
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\Microsoft.AI.Agent.Intercept.dll
@@ -57,6 +59,7 @@ E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\System.Web.WebPages.Razor.dll
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\WebActivatorEx.dll
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\WebGrease.dll
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\DreamMaker.Domain.pdb
+E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\DreamMaker.UI.pdb
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\Microsoft.AI.DependencyCollector.xml
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\Microsoft.AI.Web.xml
@@ -92,11 +95,8 @@ E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\Microsoft.Owin.Security.OAuth.xm
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\Microsoft.Owin.Security.Google.xml
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\Microsoft.Owin.Security.Twitter.xml
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-E:\Bruce\Projects\DreamMaker\DreamMaker.Web\obj\Debug\DreamMaker.Web.csprojResolveAssemblyReference.cache
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\obj\Debug\DreamMaker.Web.dll
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\obj\Debug\DreamMaker.Web.pdb
-E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\DreamMaker.UI.dll
-E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\DreamMaker.UI.pdb
 D:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\ApplicationInsights.config
 D:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\roslyn\csc.exe
 D:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll

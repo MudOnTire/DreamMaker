@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DreamMaker.Domain.DBContext;
 
 namespace DreamMaker.Domain.ModelMapper
 {
@@ -58,6 +59,23 @@ namespace DreamMaker.Domain.ModelMapper
                 ProjectDescription = project.ProjectDescription,
                 Creator = this.GetUserViewModeFromEntity(creator),
                 CreateTime = project.CreateTime
+            };
+        }
+
+        public UserWalletViewModel GetUserWalletViewModelFromEntity(UserWallet wallet)
+        {
+            var owner = _appContext.Users.FirstOrDefault(u => u.Id == wallet.UserId);
+            if (owner == null)
+            {
+                throw new Exception(string.Format("wallet {0} has no owner", wallet.WalletId));
+            }
+            return new UserWalletViewModel
+            {
+                WalletId = wallet.WalletId,
+                CurrentBalance = wallet.CurrentBalance,
+                AlipayAccount = wallet.AlipayAccount,
+                WeChatAccount = wallet.WeChatAccount,
+                Owner = this.GetUserViewModeFromEntity(owner)
             };
         }
     }
