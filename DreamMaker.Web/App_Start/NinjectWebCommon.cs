@@ -64,6 +64,7 @@ namespace DreamMaker.Web.App_Start
         {
             kernel.Bind<IRoomRepository>().To<RoomRepository>();
             kernel.Bind<IFundingProjectRepository>().To<FundingProjectRepository>();
+            kernel.Bind<IUserWalletRepository>().To<UserWalletRepository>();
             kernel.Bind<IModelMapper>().To<ModelMapper>();
         }        
     }

@@ -32,3 +32,4 @@ E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\Microsoft.Owin.Security
 E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\Newtonsoft.Json.xml
 E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.dll
 E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.pdb
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.Migrations.addUserWallet.resources

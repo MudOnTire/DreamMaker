@@ -97,5 +97,3 @@ E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\Microsoft.Owin.Security.Twitter.
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\obj\Debug\DreamMaker.Web.dll
 E:\Bruce\Projects\DreamMaker\DreamMaker.Web\obj\Debug\DreamMaker.Web.pdb
-E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\AopSdk.dll
-E:\Bruce\Projects\DreamMaker\DreamMaker.Web\bin\AopSdk.pdb

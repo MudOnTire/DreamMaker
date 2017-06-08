@@ -88,9 +88,12 @@
   <ItemGroup>
     <Compile Include="Abstract\IFundingProjectRepository.cs" />
     <Compile Include="Abstract\IRoomRepository.cs" />
+    <Compile Include="Abstract\IUserWalletRepository.cs" />
+    <Compile Include="DBContext\ApplicationDbContext.cs" />
     <Compile Include="Entities\FundingProject.cs" />
     <Compile Include="Entities\IdentityModels.cs" />
     <Compile Include="Entities\Room.cs" />
+    <Compile Include="Entities\UserWallet.cs" />
     <Compile Include="Migrations\201705281314599_addModels.cs" />
     <Compile Include="Migrations\201705281314599_addModels.Designer.cs">
       <DependentUpon>201705281314599_addModels.cs</DependentUpon>
@@ -107,12 +110,17 @@
     <Compile Include="Migrations\201705290748229_addRoomCreateTime.Designer.cs">
       <DependentUpon>201705290748229_addRoomCreateTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706080605442_addUserWallet.cs" />
+    <Compile Include="Migrations\201706080605442_addUserWallet.Designer.cs">
+      <DependentUpon>201706080605442_addUserWallet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelMapper\IModelMapper.cs" />
     <Compile Include="ModelMapper\ModelMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\FundingProjectRepository.cs" />
     <Compile Include="Repositories\RoomRepository.cs" />
+    <Compile Include="Repositories\UserWalletRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -136,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705290748229_addRoomCreateTime.resx">
       <DependentUpon>201705290748229_addRoomCreateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706080605442_addUserWallet.resx">
+      <DependentUpon>201706080605442_addUserWallet.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

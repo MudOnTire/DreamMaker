@@ -10,5 +10,7 @@ namespace DreamMaker.Domain.ModelMapper
         RoomViewModel GetRoomViewModelFromEntity(Room room);
 
         FundingProjectViewModel GetFundingProjectViewModelFromEntity(FundingProject project);
+
+        UserWalletViewModel GetUserWalletViewModelFromEntity(UserWallet wallet);
     }
 }

@@ -3,11 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DreamMaker.Domain.Abstract;
+using DreamMaker.Domain.Repositories;
 
 namespace DreamMaker.Web.Controllers
 {
     public class UserController : Controller
     {
+        private IUserWalletRepository _userWalletRepository;
+
+        public UserController(IUserWalletRepository userWalletRepository)
+        {
+            _userWalletRepository = userWalletRepository;
+        }
+
         /// <summary>
         /// 登录用户自己的管理界面
         /// </summary>
@@ -20,7 +29,8 @@ namespace DreamMaker.Web.Controllers
 
         public ActionResult MyWallet()
         {
-            return View();
+            var model = _userWalletRepository.GetViewModel();
+            return View(model);
         }
     }
 }

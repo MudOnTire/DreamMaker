@@ -9,6 +9,7 @@ using DreamMaker.UI.ViewModels;
 using DreamMaker.Domain.ModelMapper;
 using DreamMaker.UI.InputModels;
 using System.Web;
+using DreamMaker.Domain.DBContext;
 using Microsoft.AspNet.Identity;
 
 namespace DreamMaker.Domain.Repositories
@@ -63,7 +64,7 @@ namespace DreamMaker.Domain.Repositories
                 CreatorId = currentUserId,
                 CreateTime = DateTime.Now,
                 Members = new List<ApplicationUser>()
-        };
+            };
             newRoom.Members.Add(currentUser);
             var addedRoom = _appContext.Rooms.Add(newRoom);
             _appContext.SaveChanges();

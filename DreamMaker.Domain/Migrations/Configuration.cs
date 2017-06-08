@@ -5,14 +5,14 @@ namespace DreamMaker.Domain.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<DreamMaker.Domain.Entities.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DreamMaker.Domain.DBContext.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(DreamMaker.Domain.Entities.ApplicationDbContext context)
+        protected override void Seed(DreamMaker.Domain.DBContext.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
