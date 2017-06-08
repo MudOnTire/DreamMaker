@@ -15,5 +15,7 @@ namespace DreamMaker.Domain.Abstract
         int Create();
 
         UserWalletViewModel GetViewModel();
+
+        bool Recharge(decimal amount);
     }
 }

@@ -29,6 +29,10 @@ namespace DreamMaker.Domain.Repositories
             get { return _appContext.UserWallets; }
         }
 
+        /// <summary>
+        /// 为当前用户创建钱包
+        /// </summary>
+        /// <returns></returns>
         public int Create()
         {
             var currentUserId = HttpContext.Current.User.Identity.GetUserId();
@@ -42,7 +46,11 @@ namespace DreamMaker.Domain.Repositories
             return addedWallet.WalletId;
         }
 
-        public UserWalletViewModel GetViewModel()
+        /// <summary>
+        /// 获取当前用户的钱包，如果当前用户没有钱包就创建
+        /// </summary>
+        /// <returns></returns>
+        public UserWallet GetOrCreateWalletOfCurrentUser()
         {
             var currentUserId = HttpContext.Current.User.Identity.GetUserId();
             var dbModel = _appContext.UserWallets.FirstOrDefault(w => w.UserId == currentUserId);
@@ -51,7 +59,37 @@ namespace DreamMaker.Domain.Repositories
                 int walletId = Create();
                 dbModel = _appContext.UserWallets.FirstOrDefault(w => w.WalletId == walletId);
             }
+            return dbModel;
+        }
+
+        /// <summary>
+        /// 获取当前用户钱包的ViewModel
+        /// </summary>
+        /// <returns></returns>
+        public UserWalletViewModel GetViewModel()
+        {
+            var dbModel = GetOrCreateWalletOfCurrentUser();
             return _modelMapper.GetUserWalletViewModelFromEntity(dbModel);
+        }
+
+        /// <summary>
+        /// 为当前用户的钱包充值
+        /// </summary>
+        /// <param name="amount"></param>
+        /// <returns></returns>
+        public bool Recharge(decimal amount)
+        {
+            var wallet = GetOrCreateWalletOfCurrentUser();
+            wallet.CurrentBalance += amount;
+            int result = _appContext.SaveChanges();
+            if (result == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

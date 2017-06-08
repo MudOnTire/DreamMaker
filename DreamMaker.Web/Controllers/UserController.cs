@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DreamMaker.Domain.Abstract;
@@ -31,6 +32,21 @@ namespace DreamMaker.Web.Controllers
         {
             var model = _userWalletRepository.GetViewModel();
             return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult RechargeMyWallet(decimal amount)
+        {
+            bool result = _userWalletRepository.Recharge(amount);
+            if (result)
+            {
+                return Json(new {amount = amount}, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new {amount = 0}, JsonRequestBehavior.AllowGet);
+            }
         }
     }
 }
