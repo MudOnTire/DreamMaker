@@ -88,6 +88,7 @@
   <ItemGroup>
     <Compile Include="Abstract\IFundingProjectRepository.cs" />
     <Compile Include="Abstract\IRoomRepository.cs" />
+    <Compile Include="Abstract\IUserRepository.cs" />
     <Compile Include="Abstract\IUserWalletRepository.cs" />
     <Compile Include="DBContext\ApplicationDbContext.cs" />
     <Compile Include="Entities\FundingProject.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\FundingProjectRepository.cs" />
     <Compile Include="Repositories\RoomRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\UserWalletRepository.cs" />
   </ItemGroup>
   <ItemGroup>
