@@ -1,3 +1,7 @@
 
 *.dll
 *.dll
+*.dll
+.vs/DreamMaker/v14/.suo
+DreamMaker.Domain/bin/Debug/DreamMaker.Domain.pdb
+*.pdb
