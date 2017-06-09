@@ -1,6 +1,8 @@
-DreamMaker.Domain/bin
-DreamMaker.Domain/obj
-DreamMaker.UI/bin
-DreamMaker.UI/obj
-DreamMaker.Web/bin
-DreamMaker.Web/obj
+**/bin
+**/bin/Debug
+**/bin/Release
+**/obj
+**/packages
+*.pdb
+*.dll
+*.cache
