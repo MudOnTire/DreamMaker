@@ -10,15 +10,25 @@ namespace DreamMaker.Web.Controllers
 {
     public class LuckyCenterController : Controller
     {
+        private IUserRepository _userRepository;
         private IRoomRepository _roomRepository;
 
-        public LuckyCenterController(IRoomRepository roomRepository)
+        public LuckyCenterController(IUserRepository userRepository, IRoomRepository roomRepository)
         {
+            _userRepository = userRepository;
             _roomRepository = roomRepository;
         }
 
         public ActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                var currentUser = _userRepository.GetCurrentUser();
+                if (currentUser.Room != null)
+                {
+                    return RedirectToAction("Detail", new { roomId = currentUser.Room.RoomId });
+                }
+            }
             return View();
         }
         
