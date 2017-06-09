@@ -5,3 +5,10 @@
 .vs/DreamMaker/v14/.suo
 DreamMaker.Domain/bin/Debug/DreamMaker.Domain.pdb
 *.pdb
+*.dll
+*.pdb
+.vs/DreamMaker/v14/.suo
+*.txt
+*.cache
+*.Cache
+*.resources
