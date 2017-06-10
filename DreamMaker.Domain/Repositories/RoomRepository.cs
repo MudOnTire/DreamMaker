@@ -19,10 +19,12 @@ namespace DreamMaker.Domain.Repositories
         private ApplicationDbContext _appContext = new ApplicationDbContext();
 
         private IModelMapper _modelMapper;
+        private IUserRepository _userRepository;
 
-        public RoomRepository(IModelMapper modelMapper)
+        public RoomRepository(IModelMapper modelMapper, IUserRepository userRepository)
         {
             _modelMapper = modelMapper;
+            _userRepository = userRepository;
         }
 
         public IEnumerable<Room> Rooms
@@ -55,13 +57,12 @@ namespace DreamMaker.Domain.Repositories
         /// <returns></returns>
         public long Create(CreateLuckyRoomInputModel model)
         {
-            var currentUserId = HttpContext.Current.User.Identity.GetUserId();
-            var currentUser = _appContext.Users.FirstOrDefault(u => u.Id == currentUserId);
+            var currentUser = _userRepository.GetCurrentUserInContext(_appContext);
             var newRoom = new Room
             {
                 RoomName = model.RoomName,
                 MaxMemberCount = model.MaxMemberCount,
-                CreatorId = currentUserId,
+                CreatorId = currentUser.Id,
                 CreateTime = DateTime.Now,
                 Members = new List<ApplicationUser>()
             };
@@ -95,8 +96,7 @@ namespace DreamMaker.Domain.Repositories
         /// <returns></returns>
         public bool JoinRoom(long roomId)
         {
-            var currentUserId = HttpContext.Current.User.Identity.GetUserId();
-            var currentUser = _appContext.Users.FirstOrDefault(u => u.Id == currentUserId);
+            var currentUser = _userRepository.GetCurrentUserInContext(_appContext);
             var room = _appContext.Rooms.FirstOrDefault(r => r.RoomId == roomId);
             if (room == null)
             {
@@ -105,6 +105,40 @@ namespace DreamMaker.Domain.Repositories
             room.Members.Add(currentUser);
             _appContext.SaveChanges();
             return true;
+        }
+
+        /// <summary>
+        /// 当前用户退出所在的房间
+        /// </summary>
+        /// <returns></returns>
+        public bool LeaveRoom()
+        {
+            var currentUser = _userRepository.GetCurrentUserInContext(_appContext);
+            var currentRoom = currentUser.Room;
+            if (currentRoom == null)
+            {
+                throw new Exception("当前用户没有在房间中");
+            }
+            else
+            {
+                if (currentRoom.Members.Count() == 1)
+                {
+                    _appContext.Rooms.Remove(currentRoom);
+                }
+                else
+                {
+                    currentRoom.Members.Remove(currentUser);
+                }
+                int result = _appContext.SaveChanges();
+                if (result > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
     }
 }

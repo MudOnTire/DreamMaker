@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Detail";
+    var currentUserId = User.Identity.GetUserId();
 }
 
 <h2>@Model.RoomName</h2>
@@ -19,3 +20,9 @@
     }
 </ol>
 
+@if (currentUserId == Model.Creator.UserId)
+{
+    <a>开始抽奖</a>
+}
+
+<a href="@Url.Action("Leave")">退出房间</a>

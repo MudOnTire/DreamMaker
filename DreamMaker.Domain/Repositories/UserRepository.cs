@@ -41,5 +41,16 @@ namespace DreamMaker.Domain.Repositories
             var currentUser = _appContext.Users.FirstOrDefault(u => u.Id == currentUserId);
             return currentUser;
         }
+
+        /// <summary>
+        /// 获取制定DBContext中的当前登录用户
+        /// </summary>
+        /// <returns></returns>
+        public ApplicationUser GetCurrentUserInContext(ApplicationDbContext context)
+        {
+            var currentUserId = HttpContext.Current.User.Identity.GetUserId();
+            var currentUser = context.Users.FirstOrDefault(u => u.Id == currentUserId);
+            return currentUser;
+        }
     }
 }

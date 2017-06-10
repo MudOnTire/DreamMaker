@@ -66,7 +66,7 @@ namespace DreamMaker.Domain.Repositories
         /// 获取当前用户钱包的ViewModel
         /// </summary>
         /// <returns></returns>
-        public UserWalletViewModel GetViewModel()
+        public UserWalletViewModel GetCurrentUserWalletViewModel()
         {
             var dbModel = GetOrCreateWalletOfCurrentUser();
             return _modelMapper.GetUserWalletViewModelFromEntity(dbModel);

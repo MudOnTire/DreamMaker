@@ -1,4 +1,5 @@
-﻿using DreamMaker.Domain.Entities;
+﻿using DreamMaker.Domain.DBContext;
+using DreamMaker.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,7 @@ namespace DreamMaker.Domain.Abstract
         IEnumerable<ApplicationUser> Users { get; }
 
         ApplicationUser GetCurrentUser();
+
+        ApplicationUser GetCurrentUserInContext(ApplicationDbContext context);
     }
 }

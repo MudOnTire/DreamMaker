@@ -1,11 +1,4 @@
-<<<<<<< HEAD
 D:\Bruce\Projects\DreamMaker\DreamMaker.UI\bin\Debug\DreamMaker.UI.dll
 D:\Bruce\Projects\DreamMaker\DreamMaker.UI\bin\Debug\DreamMaker.UI.pdb
 D:\Bruce\Projects\DreamMaker\DreamMaker.UI\obj\Debug\DreamMaker.UI.dll
 D:\Bruce\Projects\DreamMaker\DreamMaker.UI\obj\Debug\DreamMaker.UI.pdb
-=======
-E:\Bruce\Projects\DreamMaker\DreamMaker.UI\bin\Debug\DreamMaker.UI.dll
-E:\Bruce\Projects\DreamMaker\DreamMaker.UI\bin\Debug\DreamMaker.UI.pdb
-E:\Bruce\Projects\DreamMaker\DreamMaker.UI\obj\Debug\DreamMaker.UI.dll
-E:\Bruce\Projects\DreamMaker\DreamMaker.UI\obj\Debug\DreamMaker.UI.pdb
->>>>>>> 48d61b62489e0c738ce2ca9bf50f8d34cb3d567e

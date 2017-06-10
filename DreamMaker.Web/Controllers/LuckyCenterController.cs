@@ -1,8 +1,10 @@
 ﻿using DreamMaker.Domain.Abstract;
 using DreamMaker.UI.InputModels;
+using DreamMaker.UI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -12,11 +14,13 @@ namespace DreamMaker.Web.Controllers
     {
         private IUserRepository _userRepository;
         private IRoomRepository _roomRepository;
+        private IUserWalletRepository _userWalletRepository;
 
-        public LuckyCenterController(IUserRepository userRepository, IRoomRepository roomRepository)
+        public LuckyCenterController(IUserRepository userRepository, IRoomRepository roomRepository, IUserWalletRepository userWalletRepository)
         {
             _userRepository = userRepository;
             _roomRepository = roomRepository;
+            _userWalletRepository = userWalletRepository;
         }
 
         public ActionResult Index()
@@ -86,6 +90,12 @@ namespace DreamMaker.Web.Controllers
         [Authorize]
         public ActionResult Join(long roomId)
         {
+            UserWalletViewModel wallet = _userWalletRepository.GetCurrentUserWalletViewModel();
+            if (wallet.CurrentBalance < 1)
+            {
+                TempData["Warning"] = "您的余额不足，请先充值";
+                return RedirectToAction("MyWallet", "User");
+            }
             bool result = _roomRepository.JoinRoom(roomId);
             if (result)
             {
@@ -94,6 +104,24 @@ namespace DreamMaker.Web.Controllers
             else
             {
                 return new HttpNotFoundResult();
+            }
+        }
+        
+        /// <summary>
+        /// 登录用户当前房间
+        /// </summary>
+        /// <returns></returns>
+        [Authorize]
+        public ActionResult Leave()
+        {
+            bool result = _roomRepository.LeaveRoom();
+            if (result)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
         }
     }

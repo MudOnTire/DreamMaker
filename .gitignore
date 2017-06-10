@@ -6,6 +6,3 @@
 *.pdb
 *.dll
 *.cache
-*.dll
-*.pdb
-.vs/DreamMaker/v14/.suo

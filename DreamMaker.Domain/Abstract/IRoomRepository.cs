@@ -20,5 +20,7 @@ namespace DreamMaker.Domain.Abstract
         long Create(CreateLuckyRoomInputModel model);
 
         bool JoinRoom(long roomId);
+
+        bool LeaveRoom();
     }
 }

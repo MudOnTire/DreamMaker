@@ -30,7 +30,7 @@ namespace DreamMaker.Web.Controllers
 
         public ActionResult MyWallet()
         {
-            var model = _userWalletRepository.GetViewModel();
+            var model = _userWalletRepository.GetCurrentUserWalletViewModel();
             return View(model);
         }
 
