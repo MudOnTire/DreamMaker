@@ -115,6 +115,10 @@
     <Compile Include="Migrations\201706080605442_addUserWallet.Designer.cs">
       <DependentUpon>201706080605442_addUserWallet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706081004346_addRoomToUser.cs" />
+    <Compile Include="Migrations\201706081004346_addRoomToUser.Designer.cs">
+      <DependentUpon>201706081004346_addRoomToUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelMapper\IModelMapper.cs" />
     <Compile Include="ModelMapper\ModelMapper.cs" />
@@ -149,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706080605442_addUserWallet.resx">
       <DependentUpon>201706080605442_addUserWallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706081004346_addRoomToUser.resx">
+      <DependentUpon>201706081004346_addRoomToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

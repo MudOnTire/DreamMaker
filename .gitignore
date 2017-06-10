@@ -1,3 +1,11 @@
-
+**/bin
+**/bin/Debug
+**/bin/Release
+**/obj
+**/packages
+*.pdb
 *.dll
+*.cache
 *.dll
+*.pdb
+.vs/DreamMaker/v14/.suo

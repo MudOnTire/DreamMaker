@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\DreamMaker.Domain.dll.config
 D:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\DreamMaker.Domain.dll
 D:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\DreamMaker.Domain.pdb
@@ -33,3 +34,41 @@ D:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.Migra
 D:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.csproj.GenerateResource.Cache
 D:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.dll
 D:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.pdb
+=======
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\DreamMaker.Domain.dll.config
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\DreamMaker.Domain.dll
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\DreamMaker.Domain.pdb
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\DreamMaker.UI.dll
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\EntityFramework.dll
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\EntityFramework.SqlServer.dll
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\Microsoft.Owin.dll
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\Microsoft.Owin.Security.dll
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\Newtonsoft.Json.dll
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\Owin.dll
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\DreamMaker.UI.pdb
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\EntityFramework.xml
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\EntityFramework.SqlServer.xml
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\Microsoft.Owin.xml
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\Microsoft.Owin.Security.xml
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\bin\Debug\Newtonsoft.Json.xml
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.csprojResolveAssemblyReference.cache
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.Migrations.addModels.resources
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.Migrations.addCreateTimeToRoom.resources
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.Migrations.deleteRoomCreateTime.resources
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.Migrations.addRoomCreateTime.resources
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.Migrations.addUserWallet.resources
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.Migrations.addRoomToUser.resources
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.csproj.GenerateResource.Cache
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.dll
+E:\Bruce\Projects\DreamMaker\DreamMaker.Domain\obj\Debug\DreamMaker.Domain.pdb
+>>>>>>> 48d61b62489e0c738ce2ca9bf50f8d34cb3d567e
