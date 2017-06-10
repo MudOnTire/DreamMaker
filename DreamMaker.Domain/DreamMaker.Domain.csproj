@@ -88,10 +88,7 @@
   <ItemGroup>
     <Compile Include="Abstract\IFundingProjectRepository.cs" />
     <Compile Include="Abstract\IRoomRepository.cs" />
-<<<<<<< HEAD
     <Compile Include="Abstract\IUserRepository.cs" />
-=======
->>>>>>> 407623a4686ea8d55be319d718417dc1735fe030
     <Compile Include="Abstract\IUserWalletRepository.cs" />
     <Compile Include="DBContext\ApplicationDbContext.cs" />
     <Compile Include="Entities\FundingProject.cs" />
@@ -124,10 +121,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\FundingProjectRepository.cs" />
     <Compile Include="Repositories\RoomRepository.cs" />
-<<<<<<< HEAD
     <Compile Include="Repositories\UserRepository.cs" />
-=======
->>>>>>> 407623a4686ea8d55be319d718417dc1735fe030
     <Compile Include="Repositories\UserWalletRepository.cs" />
   </ItemGroup>
   <ItemGroup>
