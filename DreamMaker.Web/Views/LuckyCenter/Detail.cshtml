@@ -25,4 +25,17 @@
     <a>开始抽奖</a>
 }
 
-<a href="@Url.Action("Leave")">退出房间</a>
+<a href="javascript:(void);" data-href="@Url.Action("Leave")" class="js-leave-room">退出房间</a>
+
+<script>
+    $(".js-leave-room").click(function() {
+        var $this = $(this);
+        var result = confirm("确认退出房间？退出后1元钱会退回到您的账户");
+        if (result) {
+            var href = $this.data("href");
+            if (href) {
+                location.replace(href);
+            }
+        }
+    });
+</script>

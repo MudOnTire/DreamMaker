@@ -16,6 +16,10 @@ namespace DreamMaker.Domain.Abstract
 
         UserWalletViewModel GetCurrentUserWalletViewModel();
 
+        UserWallet GetOrCreateWalletOfUser(string userName);
+
         bool Recharge(decimal amount);
+
+        bool Expense(decimal amount);
     }
 }

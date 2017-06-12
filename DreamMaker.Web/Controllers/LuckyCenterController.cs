@@ -96,14 +96,22 @@ namespace DreamMaker.Web.Controllers
                 TempData["Warning"] = "您的余额不足，请先充值";
                 return RedirectToAction("MyWallet", "User");
             }
-            bool result = _roomRepository.JoinRoom(roomId);
-            if (result)
+            if (_userWalletRepository.Expense(1))
             {
-                return RedirectToAction("Detail", new {roomId = roomId});
+                bool result = _roomRepository.JoinRoom(roomId);
+                if (result)
+                {
+                    return RedirectToAction("Detail", new { roomId = roomId });
+                }
+                else
+                {
+                    return new HttpNotFoundResult();
+                }
             }
             else
             {
-                return new HttpNotFoundResult();
+                TempData["Warning"] = "扣款失败";
+                return RedirectToAction("MyWallet", "User");
             }
         }
         

@@ -63,6 +63,30 @@ namespace DreamMaker.Domain.Repositories
         }
 
         /// <summary>
+        /// 根据用户名获取用户的钱包
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
+        public UserWallet GetOrCreateWalletOfUser(string userName)
+        {
+            var user = _appContext.Users.FirstOrDefault(u => u.UserName == userName);
+            if (user == null)
+            {
+                return null;
+            }
+            else
+            {
+                var dbModel = _appContext.UserWallets.FirstOrDefault(w => w.UserId == user.Id);
+                if (dbModel == null)
+                {
+                    int walletId = Create();
+                    dbModel = _appContext.UserWallets.FirstOrDefault(w => w.WalletId == walletId);
+                }
+                return dbModel;
+            }
+        }
+
+        /// <summary>
         /// 获取当前用户钱包的ViewModel
         /// </summary>
         /// <returns></returns>
@@ -83,6 +107,28 @@ namespace DreamMaker.Domain.Repositories
             wallet.CurrentBalance += amount;
             int result = _appContext.SaveChanges();
             if (result == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 消费
+        /// </summary>
+        /// <param name="amount"></param>
+        /// <returns></returns>
+        public bool Expense(decimal amount)
+        {
+            var wallet = GetOrCreateWalletOfCurrentUser();
+            var adminWallet = GetOrCreateWalletOfUser("DMAdmin");
+            wallet.CurrentBalance -= amount;
+            adminWallet.CurrentBalance += amount;
+            int result = _appContext.SaveChanges();
+            if (result == 2)
             {
                 return true;
             }

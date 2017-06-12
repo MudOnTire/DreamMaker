@@ -9,7 +9,7 @@
         {
             <li>
                 <h3>
-                    <a href="@Url.Action("Detail", new { roomId = room.RoomId })">@room.RoomName</a>
+                    <a href="@Url.Action("Detail", new {roomId = room.RoomId})">@room.RoomName</a>
                 </h3>
                 <div class="room__members">
                     <h4>Room Members</h4>
@@ -28,9 +28,22 @@
                 }
                 else
                 {
-                    <a href="@Url.Action("Join","LuckyCenter",new {roomId=room.RoomId})" class="js-join-room">Join</a>
+                    <a href="javascript:void(0);" data-href="@Url.Action("Join", "LuckyCenter", new {roomId = room.RoomId})" class="js-join-room">Join</a>
                 }
             </li>
         }
     </ul>
 </div>
+
+<script>
+    $(".js-join-room").click(function () {
+        var $this = $(this);
+        var result = confirm("加入房间将花费1元钱！");
+        if (result) {
+            var href = $this.data("href");
+            if (href) {
+                location.replace(href);
+            }
+        }
+    });
+</script>

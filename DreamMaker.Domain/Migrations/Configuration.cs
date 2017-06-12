@@ -21,10 +21,10 @@ namespace DreamMaker.Domain.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
             
-            context.Users.AddOrUpdate(
-              u => u.UserName,
-              new ApplicationUser { UserName = "DMAdmin" }
-            );
+            //context.Users.AddOrUpdate(
+            //  u => u.UserName,
+            //  new ApplicationUser { UserName = "DMAdmin" }
+            //);
         }
     }
 }
