@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,10 +19,12 @@ namespace DreamMaker.Domain.Repositories
         private ApplicationDbContext _appContext = new ApplicationDbContext();
 
         private IModelMapper _modelMapper;
+        private IUserRepository _userRepository;
 
-        public UserWalletRepository(IModelMapper modelMapper)
+        public UserWalletRepository(IModelMapper modelMapper, IUserRepository userRepository)
         {
             _modelMapper = modelMapper;
+            _userRepository = userRepository;
         }
 
         public IEnumerable<UserWallet> UserWallets
@@ -33,67 +36,81 @@ namespace DreamMaker.Domain.Repositories
         /// 为当前用户创建钱包
         /// </summary>
         /// <returns></returns>
-        public int Create()
+        public UserWallet Create()
         {
-            var currentUserId = HttpContext.Current.User.Identity.GetUserId();
+            var currentUser = _userRepository.GetCurrentUserInContext(_appContext);
             var newWallet = new UserWallet
             {
-                UserId = currentUserId,
+                User = currentUser,
                 CurrentBalance = 0
             };
-            var addedWallet = _appContext.UserWallets.Add(newWallet);
+            currentUser.UserWallet = newWallet;
             _appContext.SaveChanges();
-            return addedWallet.WalletId;
+            return currentUser.UserWallet;
+        }
+
+        public UserWallet Create(string userId)
+        {
+            var user = _appContext.Users.FirstOrDefault(u => u.Id == userId);
+            if (user == null)
+            {
+                return null;
+            }
+            var newWallet = new UserWallet
+            {
+                User = user,
+                CurrentBalance = 0
+            };
+            user.UserWallet = newWallet;
+            _appContext.SaveChanges();
+            return user.UserWallet;
         }
 
         /// <summary>
         /// 获取当前用户的钱包，如果当前用户没有钱包就创建
         /// </summary>
         /// <returns></returns>
-        public UserWallet GetOrCreateWalletOfCurrentUser()
+        private UserWallet GetOrCreateWalletOfCurrentUser()
         {
-            var currentUserId = HttpContext.Current.User.Identity.GetUserId();
-            var dbModel = _appContext.UserWallets.FirstOrDefault(w => w.UserId == currentUserId);
+            var currentUser = _userRepository.GetCurrentUserInContext(_appContext);
+            var dbModel = currentUser.UserWallet;
             if (dbModel == null)
             {
-                int walletId = Create();
-                dbModel = _appContext.UserWallets.FirstOrDefault(w => w.WalletId == walletId);
+                dbModel = Create();
             }
             return dbModel;
         }
 
         /// <summary>
-        /// 根据用户名获取用户的钱包
+        /// 获取管理员钱包
         /// </summary>
-        /// <param name="userName"></param>
         /// <returns></returns>
-        public UserWallet GetOrCreateWalletOfUser(string userName)
+        public UserWallet GetAdminWallet()
         {
-            var user = _appContext.Users.FirstOrDefault(u => u.UserName == userName);
+            var user = _appContext.Users.FirstOrDefault(u => u.UserName == "DMAdmin");
             if (user == null)
             {
                 return null;
             }
             else
             {
-                var dbModel = _appContext.UserWallets.FirstOrDefault(w => w.UserId == user.Id);
+                var dbModel = user.UserWallet;
                 if (dbModel == null)
                 {
-                    int walletId = Create();
-                    dbModel = _appContext.UserWallets.FirstOrDefault(w => w.WalletId == walletId);
+                    dbModel = Create(user.Id);
                 }
                 return dbModel;
             }
         }
 
         /// <summary>
-        /// 获取当前用户钱包的ViewModel
+        /// 获取当前用户钱包的entity
         /// </summary>
         /// <returns></returns>
-        public UserWalletViewModel GetCurrentUserWalletViewModel()
+        public UserWallet GetCurrentUserWallet()
         {
             var dbModel = GetOrCreateWalletOfCurrentUser();
-            return _modelMapper.GetUserWalletViewModelFromEntity(dbModel);
+            return dbModel;
         }
 
         /// <summary>
@@ -117,14 +134,14 @@ namespace DreamMaker.Domain.Repositories
         }
 
         /// <summary>
-        /// 消费
+        /// 当前用户消费
         /// </summary>
         /// <param name="amount"></param>
         /// <returns></returns>
         public bool Expense(decimal amount)
         {
             var wallet = GetOrCreateWalletOfCurrentUser();
-            var adminWallet = GetOrCreateWalletOfUser("DMAdmin");
+            var adminWallet = GetAdminWallet();
             wallet.CurrentBalance -= amount;
             adminWallet.CurrentBalance += amount;
             int result = _appContext.SaveChanges();
@@ -135,6 +152,28 @@ namespace DreamMaker.Domain.Repositories
             else
             {
                 return false;
+            }
+        }
+
+        /// <summary>
+        /// 管理员向当前用户转账
+        /// </summary>
+        /// <param name="amount"></param>
+        /// <returns></returns>
+        public bool TransferFromAdminToCurrentUser(decimal amount)
+        {
+            var userWallet = GetOrCreateWalletOfCurrentUser();
+            var adminWallet = GetAdminWallet();
+            userWallet.CurrentBalance += amount;
+            adminWallet.CurrentBalance -= amount;
+            int result = _appContext.SaveChanges();
+            if (result == 2)
+            {
+                return true;
+            }
+            else
+            {
+                throw new Exception(string.Format("管理员向用户{0}转账{1}失败", userWallet.User.Id, amount));
             }
         }
     }

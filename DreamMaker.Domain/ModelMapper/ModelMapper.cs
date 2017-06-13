@@ -64,18 +64,17 @@ namespace DreamMaker.Domain.ModelMapper
 
         public UserWalletViewModel GetUserWalletViewModelFromEntity(UserWallet wallet)
         {
-            var owner = _appContext.Users.FirstOrDefault(u => u.Id == wallet.UserId);
-            if (owner == null)
+            if (wallet.User == null)
             {
-                throw new Exception(string.Format("wallet {0} has no owner", wallet.WalletId));
+                throw new Exception(string.Format("wallet {0} has no owner", wallet.UserWalletId));
             }
             return new UserWalletViewModel
             {
-                WalletId = wallet.WalletId,
+                WalletId = wallet.UserWalletId,
                 CurrentBalance = wallet.CurrentBalance,
                 AlipayAccount = wallet.AlipayAccount,
                 WeChatAccount = wallet.WeChatAccount,
-                Owner = this.GetUserViewModeFromEntity(owner)
+                Owner = this.GetUserViewModeFromEntity(wallet.User)
             };
         }
     }

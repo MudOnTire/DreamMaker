@@ -119,6 +119,10 @@
     <Compile Include="Migrations\201706081004346_addRoomToUser.Designer.cs">
       <DependentUpon>201706081004346_addRoomToUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706130244515_setOneToOneWithUserAndWallet.cs" />
+    <Compile Include="Migrations\201706130244515_setOneToOneWithUserAndWallet.Designer.cs">
+      <DependentUpon>201706130244515_setOneToOneWithUserAndWallet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelMapper\IModelMapper.cs" />
     <Compile Include="ModelMapper\ModelMapper.cs" />
@@ -156,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706081004346_addRoomToUser.resx">
       <DependentUpon>201706081004346_addRoomToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706130244515_setOneToOneWithUserAndWallet.resx">
+      <DependentUpon>201706130244515_setOneToOneWithUserAndWallet.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -90,7 +90,7 @@ namespace DreamMaker.Web.Controllers
         [Authorize]
         public ActionResult Join(long roomId)
         {
-            UserWalletViewModel wallet = _userWalletRepository.GetCurrentUserWalletViewModel();
+            var wallet = _userWalletRepository.GetCurrentUserWallet();
             if (wallet.CurrentBalance < 1)
             {
                 TempData["Warning"] = "您的余额不足，请先充值";

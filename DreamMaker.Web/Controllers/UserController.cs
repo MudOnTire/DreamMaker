@@ -5,6 +5,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DreamMaker.Domain.Abstract;
+using DreamMaker.Domain.ModelMapper;
 using DreamMaker.Domain.Repositories;
 
 namespace DreamMaker.Web.Controllers
@@ -12,10 +13,12 @@ namespace DreamMaker.Web.Controllers
     public class UserController : Controller
     {
         private IUserWalletRepository _userWalletRepository;
+        private IModelMapper _modelMapper;
 
-        public UserController(IUserWalletRepository userWalletRepository)
+        public UserController(IUserWalletRepository userWalletRepository, IModelMapper modelMapper)
         {
             _userWalletRepository = userWalletRepository;
+            _modelMapper = modelMapper;
         }
 
         /// <summary>
@@ -30,8 +33,9 @@ namespace DreamMaker.Web.Controllers
 
         public ActionResult MyWallet()
         {
-            var model = _userWalletRepository.GetCurrentUserWalletViewModel();
-            return View(model);
+            var dbModel = _userWalletRepository.GetCurrentUserWallet();
+            var vm = _modelMapper.GetUserWalletViewModelFromEntity(dbModel);
+            return View(vm);
         }
 
         [HttpPost]

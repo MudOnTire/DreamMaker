@@ -3,14 +3,16 @@
 @{
     ViewBag.Title = "Detail";
     var currentUserId = User.Identity.GetUserId();
+    var creatorId = Model.Creator.UserId;
 }
 
 <h2>@Model.RoomName</h2>
-<h3>房间人数：
+<h4>创建者：@Model.Creator.UserName</h4>
+<h4>房间人数：
     <span>@Model.Members.Count()</span>/
     <span>@Model.MaxMemberCount</span>
-</h3>
-<h3>成员：</h3>
+</h4>
+<h4>成员：</h4>
 <ol>
     @foreach(var member in Model.Members)
     {
@@ -20,7 +22,7 @@
     }
 </ol>
 
-@if (currentUserId == Model.Creator.UserId)
+@if (currentUserId == Model.Creator.UserId) 
 {
     <a>开始抽奖</a>
 }
@@ -30,7 +32,12 @@
 <script>
     $(".js-leave-room").click(function() {
         var $this = $(this);
-        var result = confirm("确认退出房间？退出后1元钱会退回到您的账户");
+        var result = false;
+        if ('@creatorId' === '@currentUserId') {
+            result = true;
+        } else {
+            result = confirm("确认退出房间？退出后1元钱会退回到您的账户");
+        }
         if (result) {
             var href = $this.data("href");
             if (href) {

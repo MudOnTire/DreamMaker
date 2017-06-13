@@ -12,14 +12,16 @@ namespace DreamMaker.Domain.Abstract
     {
         IEnumerable<UserWallet> UserWallets { get; }
 
-        int Create();
+        UserWallet Create();
 
-        UserWalletViewModel GetCurrentUserWalletViewModel();
+        UserWallet GetCurrentUserWallet();
 
-        UserWallet GetOrCreateWalletOfUser(string userName);
+        UserWallet GetAdminWallet();
 
         bool Recharge(decimal amount);
 
         bool Expense(decimal amount);
+
+        bool TransferFromAdminToCurrentUser(decimal amount);
     }
 }

@@ -20,11 +20,13 @@ namespace DreamMaker.Domain.Repositories
 
         private IModelMapper _modelMapper;
         private IUserRepository _userRepository;
+        private IUserWalletRepository _userWalletRepository;
 
-        public RoomRepository(IModelMapper modelMapper, IUserRepository userRepository)
+        public RoomRepository(IModelMapper modelMapper, IUserRepository userRepository, IUserWalletRepository userWalletRepository)
         {
             _modelMapper = modelMapper;
             _userRepository = userRepository;
+            _userWalletRepository = userWalletRepository;
         }
 
         public IEnumerable<Room> Rooms
@@ -115,6 +117,7 @@ namespace DreamMaker.Domain.Repositories
         {
             var currentUser = _userRepository.GetCurrentUserInContext(_appContext);
             var currentRoom = currentUser.Room;
+            var isCurrentUserCreator = currentUser.Id == currentRoom.CreatorId;
             if (currentRoom == null)
             {
                 throw new Exception("当前用户没有在房间中");
@@ -128,6 +131,10 @@ namespace DreamMaker.Domain.Repositories
                 else
                 {
                     currentRoom.Members.Remove(currentUser);
+                }
+                if (!isCurrentUserCreator)
+                {
+                    _userWalletRepository.TransferFromAdminToCurrentUser(1);
                 }
                 int result = _appContext.SaveChanges();
                 if (result > 0)

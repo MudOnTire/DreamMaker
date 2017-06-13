@@ -13,8 +13,8 @@ namespace DreamMaker.Domain.Entities
         /// <summary>
         /// 钱包的Id
         /// </summary>
-        [Key]
-        public int WalletId { get; set; }
+        [ForeignKey("User")]
+        public string UserWalletId { get; set; }
 
         /// <summary>
         /// 账户余额
@@ -32,8 +32,8 @@ namespace DreamMaker.Domain.Entities
         public string WeChatAccount { get; set; }
 
         /// <summary>
-        /// 用户ID
+        /// 用户
         /// </summary>
-        public string UserId { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }

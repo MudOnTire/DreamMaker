@@ -4,6 +4,5 @@ D:\Bruce\Projects\DreamMaker\DreamMaker.UI\obj\Debug\DreamMaker.UI.dll
 D:\Bruce\Projects\DreamMaker\DreamMaker.UI\obj\Debug\DreamMaker.UI.pdb
 E:\Bruce\Projects\DreamMaker\DreamMaker.UI\bin\Debug\DreamMaker.UI.dll
 E:\Bruce\Projects\DreamMaker\DreamMaker.UI\bin\Debug\DreamMaker.UI.pdb
-E:\Bruce\Projects\DreamMaker\DreamMaker.UI\obj\Debug\DreamMaker.UI.csprojResolveAssemblyReference.cache
 E:\Bruce\Projects\DreamMaker\DreamMaker.UI\obj\Debug\DreamMaker.UI.dll
 E:\Bruce\Projects\DreamMaker\DreamMaker.UI\obj\Debug\DreamMaker.UI.pdb

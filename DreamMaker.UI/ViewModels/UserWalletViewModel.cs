@@ -11,7 +11,7 @@ namespace DreamMaker.UI.ViewModels
         /// <summary>
         /// 钱包Id
         /// </summary>
-        public int WalletId { get; set; }
+        public string WalletId { get; set; }
 
         /// <summary>
         /// 账户余额
