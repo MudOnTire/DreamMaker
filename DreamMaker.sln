@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamMaker.Web", "DreamMaker.Web\DreamMaker.Web.csproj", "{92573F29-4285-4583-B45E-7C219795706D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamMaker.Domain", "DreamMaker.Domain\DreamMaker.Domain.csproj", "{B38DF4E0-5542-40CD-9836-D16A29245B17}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamMaker.UI", "DreamMaker.UI\DreamMaker.UI.csproj", "{0710C0FF-7025-4E2D-8A4C-25C013C67973}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamMaker.Utility", "DreamMaker.Utility\DreamMaker.Utility.csproj", "{38385C6B-E746-48EE-8BE8-25862FCC18EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,8 +29,15 @@ Global
 		{0710C0FF-7025-4E2D-8A4C-25C013C67973}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0710C0FF-7025-4E2D-8A4C-25C013C67973}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0710C0FF-7025-4E2D-8A4C-25C013C67973}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38385C6B-E746-48EE-8BE8-25862FCC18EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38385C6B-E746-48EE-8BE8-25862FCC18EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38385C6B-E746-48EE-8BE8-25862FCC18EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38385C6B-E746-48EE-8BE8-25862FCC18EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BFA3BF0B-1CD6-41CB-B92C-DF29B3744B08}
 	EndGlobalSection
 EndGlobal

@@ -6,3 +6,11 @@ E:\Bruce\Projects\DreamMaker\DreamMaker.UI\bin\Debug\DreamMaker.UI.dll
 E:\Bruce\Projects\DreamMaker\DreamMaker.UI\bin\Debug\DreamMaker.UI.pdb
 E:\Bruce\Projects\DreamMaker\DreamMaker.UI\obj\Debug\DreamMaker.UI.dll
 E:\Bruce\Projects\DreamMaker\DreamMaker.UI\obj\Debug\DreamMaker.UI.pdb
+C:\Projects\Mine\DreamMaker\DreamMaker.UI\bin\Debug\DreamMaker.UI.dll
+C:\Projects\Mine\DreamMaker\DreamMaker.UI\bin\Debug\DreamMaker.UI.pdb
+C:\Projects\Mine\DreamMaker\DreamMaker.UI\obj\Debug\DreamMaker.UI.csproj.CoreCompileInputs.cache
+C:\Projects\Mine\DreamMaker\DreamMaker.UI\obj\Debug\DreamMaker.UI.dll
+C:\Projects\Mine\DreamMaker\DreamMaker.UI\obj\Debug\DreamMaker.UI.pdb
+C:\Projects\Mine\DreamMaker\DreamMaker.UI\obj\Debug\DreamMaker.UI.csprojResolveAssemblyReference.cache
+C:\Projects\Mine\DreamMaker\DreamMaker.UI\bin\Debug\DreamMaker.Utility.dll
+C:\Projects\Mine\DreamMaker\DreamMaker.UI\bin\Debug\DreamMaker.Utility.pdb

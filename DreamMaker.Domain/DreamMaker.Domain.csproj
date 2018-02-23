@@ -90,6 +90,7 @@
     <Compile Include="Abstract\IRoomRepository.cs" />
     <Compile Include="Abstract\IUserRepository.cs" />
     <Compile Include="Abstract\IUserWalletRepository.cs" />
+    <Compile Include="Constants\Enums.cs" />
     <Compile Include="DBContext\ApplicationDbContext.cs" />
     <Compile Include="Entities\FundingProject.cs" />
     <Compile Include="Entities\IdentityModels.cs" />
@@ -123,6 +124,10 @@
     <Compile Include="Migrations\201706130244515_setOneToOneWithUserAndWallet.Designer.cs">
       <DependentUpon>201706130244515_setOneToOneWithUserAndWallet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802231447033_addProjectType.cs" />
+    <Compile Include="Migrations\201802231447033_addProjectType.Designer.cs">
+      <DependentUpon>201802231447033_addProjectType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelMapper\IModelMapper.cs" />
     <Compile Include="ModelMapper\ModelMapper.cs" />
@@ -140,6 +145,10 @@
     <ProjectReference Include="..\DreamMaker.UI\DreamMaker.UI.csproj">
       <Project>{0710c0ff-7025-4e2d-8a4c-25c013c67973}</Project>
       <Name>DreamMaker.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DreamMaker.Utility\DreamMaker.Utility.csproj">
+      <Project>{38385c6b-e746-48ee-8be8-25862fcc18ef}</Project>
+      <Name>DreamMaker.Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706130244515_setOneToOneWithUserAndWallet.resx">
       <DependentUpon>201706130244515_setOneToOneWithUserAndWallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802231447033_addProjectType.resx">
+      <DependentUpon>201802231447033_addProjectType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

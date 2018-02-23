@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DreamMaker.Utility.Constants;
 
 namespace DreamMaker.Domain.Entities
 {
@@ -11,6 +12,8 @@ namespace DreamMaker.Domain.Entities
     {
         [Key]
         public int ProjectId { get; set; }
+
+        public ProjectType ProjectType { get; set; }
 
         public string ProjectName { get; set; }
 
